@@ -1,0 +1,38 @@
+.flash-messages {
+  -webkit-transition: opacity 500ms ease-out, background-color 500ms ease-out;
+  -moz-transition: opacity 500ms ease-out, background-color 500ms ease-out;
+  -o-transition: opacity 500ms ease-out, background-color 500ms ease-out;
+  transition: opacity 500ms ease-out, background-color 500ms ease-out;
+
+  width: 100%;
+  height: 50px;
+  padding-top: 25px;
+  font-size: 15px;
+  text-align: center;
+  z-index: 10;
+  text-transform: uppercase;
+}
+
+.flash-messages.inactive {
+  opacity: 0;
+  pointer-events: none;
+  background-color: transparent;
+}
+
+.flash-messages.notice {
+  opacity: 1;
+  background-color: #BDECB6;
+  cursor: pointer;
+}
+
+.flash-messages.warning {
+  opacity: 1;
+  background-color: #ffb347;
+  cursor: pointer;
+}
+
+.flash-messages.error {
+  opacity: 1;
+  background-color: #FF7878;
+  cursor: pointer;
+}
