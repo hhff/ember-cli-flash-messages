@@ -5,15 +5,11 @@ class FlashView extends Ember.View
   queue: null
   queueName: null
   currentMessage: null
-  templateName: 'flash'
+  templateName: 'flash-outlet'
 
   didInsertElement: ->
-    if @queueName
-      unless @queue = @flash.queues.findBy 'queueName', @queueName
-        throw new Error "A Flash Queue named: #{@queueName} does not exist."
-    else
-      @queue = @flash.queues.findBy 'queueName', @flash.defaultQueueName
-      @queueName = @flash.defaultQueueName
+    @queueName ?= @flash.defaultQueueName
+    @queue = @flash.findOrCreateQueue @queueName
 
   click: -> @queue.dismissFlash()
 

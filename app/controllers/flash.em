@@ -1,36 +1,32 @@
 `import FlashQueue from "../models/flash-queue"`
 
 class FlashController extends Ember.Controller
-
   queues: []
   defaultQueueName: 'main'
 
   init: ->
-    @createQueue @defaultQueueName
+    @findOrCreateQueue @defaultQueueName
 
-  createQueue: (queueName) ->
+  findOrCreateQueue: (queueName) ->
     if queue = @queues.findBy 'queueName', queueName
-      throw new Error "A Flash Queue named: #{queueName} already exists."
+      queue
     else
-      newQueue           = FlashQueue.create()
-      newQueue.queueName = queueName
-
-      @queues.pushObject newQueue
+      @queues.pushObject FlashQueue.create
+        queueName: queueName
 
   # Params obj:
+  # type (string * default 'notice')
   # nagging (bool * optional)
-  # timer (int * default)
+  # flashTimeout (int * default)
   # queueName (string * defaultQueueName)
-  pushFlash: (type, message, params) ->
-    params ?= {}
-    queueName = if params.queueName
-      params.queueName
+  pushFlash: (message, options) ->
+    options ?= {}
+    queueName = if options.queueName
+      options.queueName
     else
       @defaultQueueName
 
-    if queue = @queues.findBy 'queueName', queueName
-      queue.pushFlash type, message, params
-    else
-      throw new Error "A Flash Queue named: #{queueName} does not exist"
+    queue = @findOrCreateQueue queueName
+    queue.pushFlash message, options
 
 `export default FlashController`
