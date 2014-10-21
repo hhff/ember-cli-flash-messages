@@ -1,29 +1,24 @@
 .flash-messages {
   width: 100%;
-  text-align: center;
   z-index: 10;
 }
 
 .flash-messages.inactive {
-  opacity: 0;
   pointer-events: none;
   background-color: transparent;
 }
 
 .flash-messages.notice {
-  opacity: 0.8;
   background-color: #BDECB6;
   cursor: pointer;
 }
 
 .flash-messages.warning {
-  opacity: 0.8;
   background-color: #ffb347;
   cursor: pointer;
 }
 
 .flash-messages.error {
-  opacity: 0.8;
   background-color: #FF7878;
   cursor: pointer;
 }
