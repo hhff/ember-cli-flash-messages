@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-flash-messages",
-  "version": "0.0.1.alpha",
+  "version": "0.0.1",
   "directories": {
     "doc": "doc",
     "test": "tests"
