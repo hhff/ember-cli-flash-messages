@@ -14,11 +14,10 @@ class FlashController extends Ember.Controller
       @queues.pushObject FlashQueue.create
         queueName: queueName
 
-  # Params obj:
-  # type (string * default 'notice')
-  # nagging (bool * optional)
-  # flashTimeout (int * default)
-  # queueName (string * defaultQueueName)
+  # type (string * default: 'notice')
+  # nagging (bool * default: false)
+  # flashTimeout (int * default: 4000)
+  # queueName (string * default: 'main')
   pushFlash: (message, options) ->
     options ?= {}
     queueName = if options.queueName

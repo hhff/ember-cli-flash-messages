@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('view:flash', 'FlashView');
+moduleFor('view:flash-outlet', 'FlashView');
 
 // Replace this with your real tests.
 test('it exists', function() {
